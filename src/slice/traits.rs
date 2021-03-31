@@ -603,6 +603,14 @@ where
 {
 }
 
+/// `BitSlice` has no interior immobile data.
+impl<O, T> Unpin for BitSlice<O, T>
+where
+	O: BitOrder,
+	T: BitStore,
+{
+}
+
 #[cfg(feature = "alloc")]
 impl<O, T> ToOwned for BitSlice<O, T>
 where
